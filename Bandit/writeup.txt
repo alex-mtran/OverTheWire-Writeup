@@ -1,0 +1,315 @@
+NOTE
+All passwords, private key material and created file names have been removed or changed to comply with GitHub repository rules.
+
+
+
+
+
+lvl 0:
+Notes:
+
+Steps:
+	ssh -p 2220 bandit0@bandit.labs.overthewire.org
+
+
+
+
+
+lvl 0 -> 1: [password01]
+Notes:
+Use ls to list content; cat to output content to terminal
+
+Steps:
+	ls
+	cat readme
+
+
+
+
+
+lvl 1 -> 2: [password12]
+Notes:
+./ accesses current directory
+
+Steps:
+	ls
+	cat ./-
+
+
+
+
+
+lvl 2 -> 3: [password23]
+Notes:
+always use tab complete
+
+Steps:
+	ls
+	cat ./-
+
+
+
+
+
+lvl 3 -> 4: [password34]
+Notes:
+ls -a lists hidden content in directory as well
+
+Steps:
+	ls inhere/ -a
+	cat inhere/...H (tab complete this)
+
+
+
+
+
+lvl 4 -> 5: [password45]
+Notes:
+find . -exec COMMAND {} + is for batch execution (find . -exec COMMAND ; for single runs per file)
+COMMAND is the command to be done to the files specified after find and before -exec
+Use batch execution version in order to combine with operators (pipe, redirect, etc)
+
+Steps:
+	ls
+	cd inhere/
+	find -exec file {} + | grep ASCII
+	cat ./-file07
+
+
+
+
+
+lvl 5 -> 6: [password56]
+Notes:
+find -size in bytes uses 'c' after the number
+! -executable excludes executable files
+-exec file {} + | grep ASCII runs file command and pipes output with grep ASCII
+
+Steps:
+	cd inhere/
+	find . -size 1033c ! -executable -exec file {} + | grep ASCII
+	cat ./maybehere07/.file2
+
+
+
+
+
+lvl 6 -> 7: [password67]
+Notes:
+find / searches entire server instead of from root directory ~
+2>/dev/null redirects stderrs (2) to /dev/null
+-exec cat {} \; outputs the content of the file found
+| xargs cat can be used as an alternative
+
+Steps:
+	find / -user bandit7 -group bandit6 -size 33c 2>/dev/null -exec cat {} \;
+
+
+
+
+
+lvl 7 -> 8: [password78]
+Notes:
+Use "" around the string phrase to search for if string has spaces
+
+Steps:
+	ls
+	grep millionth data.txt
+
+
+
+
+
+lvl 8 -> 9: [password89]
+Notes:
+uniq -u outputs lines that do not have duplicates
+
+Steps:
+	sort data.txt | uniq -u
+
+
+
+
+
+lvl 9 -> 10: [password910]
+Notes:
+xxd -l n outputs only the first n bytes
+
+Steps:
+	xxd -l 64 data.txt | grep ==
+
+
+
+
+
+lvl 10 -> 11: [password1011]
+Notes:
+base64 -d decodes instead of encodes
+
+Steps:
+	base64 -d data.txt
+
+
+
+
+
+lvl 11 -> 12: [password1112]
+Notes:
+tr translates characters in the first group to the second
+ROT13 shifts letters by 13 positions
+	
+Steps:
+	cat data.txt | tr [A-Za-z] [N-ZA-Mn-za-m]
+
+
+
+
+
+lvl 12 -> 13: [password1213]
+Notes:
+each compression type has magic bytes (hexadecimal)
+Gzip			1f 8b 08
+Bzip2			42 5a 68
+Tar				7573 7461 7220 (ustar offset 257)
+file and xxd can be used to identify file types
+
+Steps:
+	mktemp -d
+	cd (temp directory)
+	cp ~/data.txt .
+	xxd -r data.txt > binary
+	file binary
+	mv binary binary.gz
+	gunzip binary.gz
+	file binary
+	mv binary binary.bz2
+	bunzip2 binary.bz2
+	file binary
+	mv binary binary.gz
+	gunzip binary.gz
+	file binary
+	mv binary binary.tar
+	tar -xf binary.tar
+	file data5.bin
+	mv data5.bin data5.tar
+	tar -xf data5.tar
+	file data6.bin
+	mv data6.bin data6.bz2
+	file data6
+	mv data6 data6.tar
+	tar -xf data6.tar
+	file data8.bin
+	mv data8.bin data8.gz
+	gunzip data8.gz
+	file data8
+
+
+
+
+
+lvl 13 -> 14: ssh -p 2220 -i privatekeyfilelocal bandit14@bandit.labs.overthewire.org
+Notes:
+ssh -i specifies the identity file for public key authentication
+
+Steps:
+	exit
+	scp -P 2220 bandit13@bandit.labs.overthewire.org:privatekeyfile privatekeyfilelocal
+	ssh -p 2220 -i privatekeyfilelocal bandit14@bandit.labs.overthewire.org
+
+
+
+
+
+lvl 14 -> 15: [password1415]
+Notes:
+
+Steps:
+	cat /etc/bandit_pass/bandit14 [outputs password14]
+	nc localhost 30000
+	[submit password14]
+
+
+
+
+
+lvl 15 -> 16: [password1516]
+Notes:
+openssl s_client acts as a simple SSL/TLS client
+
+Steps:
+	openssl s_client -connect localhost:30001
+	[submit password1415]
+
+
+
+
+
+lvl 16 -> 17: ssh -p 2220 -i privatekeyfile bandit17@bandit.labs.overthewire.org
+Notes:
+look for ports with ssl/unknown return responses
+-sV detects service versions
+--script ssl-cert retrieves TLS certificate details
+password must be piped via printf | openssl
+
+Steps:
+	cat /etc/bandit_pass/bandit16
+	nmap -p 31000-32000 -sV -v --script ssl-cert localhost
+	printf "[password1516]\n" | openssl s_client -connect localhost:[specific port with ssl/unknown return response] -quiet
+	nano privatekeyfile
+	// save provided private key
+
+
+
+
+
+lvl 17 -> 18: [password1718]
+Notes:
+diff outputs the differences between two files
+
+Steps:
+	diff passwords.old passwords.new
+
+
+
+
+
+lvl 18 -> 19: [password1819]
+Notes:
+Must be run locally due to forced SSH logout
+
+Steps:
+	scp -P 2220 bandit18@bandit.labs.overthewire.org:~/readme .
+	cat readme
+
+
+
+
+
+lvl 19 -> 20: [password1920]
+Notes:
+bandit20-do uses setuid to run with owner privileges
+
+Steps:
+	./bandit20-do cat /etc/bandit_pass/bandit20
+
+
+
+
+
+lvl 20 -> 21: [password2021]
+Notes:
+-l opens a listening port
+& runs process in background
+-n suppresses newline
+
+Steps:
+	echo -n "[password1920]" | nc -l -p 1234 &
+	./suconnect 1234
+
+
+
+
+
+lvl 21 -> 22:
+Notes:
+Steps:
