@@ -17,7 +17,7 @@ Steps:
 
 lvl 0 -> 1: [password01]
 Notes:
-Use ls to list content; cat to output content to terminal
+use ls to list content; cat to output content to terminal
 
 Steps:
 	ls
@@ -67,7 +67,7 @@ lvl 4 -> 5: [password45]
 Notes:
 find . -exec COMMAND {} + is for batch execution (find . -exec COMMAND ; for single runs per file)
 COMMAND is the command to be done to the files specified after find and before -exec
-Use batch execution version in order to combine with operators (pipe, redirect, etc)
+use batch execution version in order to combine with operators (pipe, redirect, etc)
 
 Steps:
 	ls
@@ -110,7 +110,7 @@ Steps:
 
 lvl 7 -> 8: [password78]
 Notes:
-Use "" around the string phrase to search for if string has spaces
+use "" around the string phrase to search for if string has spaces
 
 Steps:
 	ls
@@ -275,7 +275,7 @@ Steps:
 
 lvl 18 -> 19: [password1819]
 Notes:
-Must be run locally due to forced SSH logout
+must be run locally due to forced SSH logout
 
 Steps:
 	scp -P 2220 bandit18@bandit.labs.overthewire.org:~/readme .
@@ -310,6 +310,13 @@ Steps:
 
 
 
-lvl 21 -> 22:
+lvl 21 -> 22: [password2120]
 Notes:
+examine cronjob_bandit22 as that is the next level -> outputs an executable cronjob_bandit22 job which runs at startup and at every minute
+examining cronjob_bandit22.sh shows that this executable gives 644 permissions which means bandit21 (us) has read permissions
+
 Steps:
+	cd /etc/cron.d/
+	cat cronjob_bandit22
+	cat /usr/bin/cronjob_bandit22.sh (creates tmp_file)
+	cat tmp_file
