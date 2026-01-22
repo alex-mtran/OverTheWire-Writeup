@@ -320,3 +320,27 @@ Steps:
 	cat cronjob_bandit22
 	cat /usr/bin/cronjob_bandit22.sh (creates tmp_file)
 	cat tmp_file
+
+
+
+
+
+lvl 22 -> 23: [password2223]
+Notes:
+in bash script, $ returns the value of the things in the parentheses
+
+Steps:
+	cd /etc/cron.d/
+	ls
+	cat cronjob_bandit23
+	cat /usr/bin/cronjob_bandit23.sh
+	echo "I am user bandit23" | md5sum | cut -d ' ' -f 1 (outputs hash)
+	cat /tmp/hash
+
+
+
+
+
+lvl 23 -> 24:
+Notes:
+Steps:
