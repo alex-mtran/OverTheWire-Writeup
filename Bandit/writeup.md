@@ -2,30 +2,30 @@
 | Level             | Skills / Techniques Learned |
 |------------------|-----------------------------|
 | [Level 0](#bandit-level-0)             | SSH |
-| [Level 0 → 1](#bandit-level-0-→-1)     | File permissions |
-| [Level 1 → 2](#bandit-level-1-→-2)     | File reading |
-| [Level 2 → 3](#bandit-level-2-→-3)     | Strings from binaries |
-| [Level 3 → 4](#bandit-level-3-→-4)     | Hidden files / dirs |
-| [Level 4 → 5](#bandit-level-4-→-5)     | Directory permissions |
-| [Level 5 → 6](#bandit-level-5-→-6)     | Symlinks |
-| [Level 6 → 7](#bandit-level-6-→-7)     | File ownership & permissions |
-| [Level 7 → 8](#bandit-level-7-→-8)     | `find` command |
-| [Level 8 → 9](#bandit-level-8-→-9)     | `grep` / text search |
-| [Level 9 → 10](#bandit-level-9-→-10)   | Base64 decoding |
-| [Level 10 → 11](#bandit-level-10-→-11) | ROT13 / simple ciphers |
-| [Level 11 → 12](#bandit-level-11-→-12) | `.gz` compression |
-| [Level 12 → 13](#bandit-level-12-→-13) | `.bz2` compression |
-| [Level 13 → 14](#bandit-level-13-→-14) | Executable / permission bits |
-| [Level 14 → 15](#bandit-level-14-→-15) | Hex / binary inspection |
-| [Level 15 → 16](#bandit-level-15-→-16) | Password-protected archives |
-| [Level 16 → 17](#bandit-level-16-→-17) | SSH private key usage |
-| [Level 17 → 18](#bandit-level-17-→-18) | SSH key permissions |
-| [Level 18 → 19](#bandit-level-18-→-19) | Local file access |
-| [Level 19 → 20](#bandit-level-19-→-20) | Netcat / networking |
-| [Level 20 → 21](#bandit-level-20-→-21) | Cron jobs / background tasks |
-| [Level 21 → 22](#bandit-level-21-→-22) | Script analysis / setuid binaries |
-| [Level 22 → 23](#bandit-level-22-→-23) | Env vars / command injection |
-| [Level 23 → 24](#bandit-level-23-→-24) | Bash scripting | Cron jobs | Chmod |
+| [Level 0 → 1](#bandit-level-0-to-1)     | File permissions |
+| [Level 1 → 2](#bandit-level-1-to-2)     | File reading |
+| [Level 2 → 3](#bandit-level-2-to-3)     | Strings from binaries |
+| [Level 3 → 4](#bandit-level-3-to-4)     | Hidden files / dirs |
+| [Level 4 → 5](#bandit-level-4-to-5)     | Directory permissions |
+| [Level 5 → 6](#bandit-level-5-to-6)     | Symlinks |
+| [Level 6 → 7](#bandit-level-6-to-7)     | File ownership & permissions |
+| [Level 7 → 8](#bandit-level-7-to-8)     | `find` command |
+| [Level 8 → 9](#bandit-level-8-to-9)     | `grep` / text search |
+| [Level 9 → 10](#bandit-level-9-to-10)   | Base64 decoding |
+| [Level 10 → 11](#bandit-level-10-to-11) | ROT13 / simple ciphers |
+| [Level 11 → 12](#bandit-level-11-to-12) | `.gz` compression |
+| [Level 12 → 13](#bandit-level-12-to-13) | `.bz2` compression |
+| [Level 13 → 14](#bandit-level-13-to-14) | Executable / permission bits |
+| [Level 14 → 15](#bandit-level-14-to-15) | Hex / binary inspection |
+| [Level 15 → 16](#bandit-level-15-to-16) | Password-protected archives |
+| [Level 16 → 17](#bandit-level-16-to-17) | SSH private key usage |
+| [Level 17 → 18](#bandit-level-17-to-18) | SSH key permissions |
+| [Level 18 → 19](#bandit-level-18-to-19) | Local file access |
+| [Level 19 → 20](#bandit-level-19-to-20) | Netcat / networking |
+| [Level 20 → 21](#bandit-level-20-to-21) | Cron jobs / background tasks |
+| [Level 21 → 22](#bandit-level-21-to-22) | Script analysis / setuid binaries |
+| [Level 22 → 23](#bandit-level-22-to-23) | Env vars / command injection |
+| [Level 23 → 24](#bandit-level-23-to-24) | Bash scripting | Cron jobs | Chmod |
 
 
 <div style="height: 20em;"></div>
@@ -70,7 +70,7 @@ Input `bandit0` for password prompt.
 
 
 
-## Bandit Level 0 → 1
+## Bandit Level 0 to 1
 
 ### Login
 
@@ -106,7 +106,7 @@ The password for the next level is stored in a file called `readme` located in t
 
 
 
-## Bandit Level 1 → 2
+## Bandit Level 1 to 2
 
 ### Login
 
@@ -142,7 +142,7 @@ The password for the next level is stored in a file called `-` located in the **
 
 
 
-## Bandit Level 2 → 3
+## Bandit Level 2 to 3
 
 ### Login
 
@@ -178,7 +178,7 @@ The password for the next level is stored in a file called `--spaces in this fil
 
 
 
-## Bandit Level 3 → 4
+## Bandit Level 3 to 4
 
 ### Login
 
@@ -213,7 +213,7 @@ The password for the next level is stored in a hidden file in the **inhere** dir
 
 
 
-## Bandit Level 4 → 5
+## Bandit Level 4 to 5
 
 ### Login
 
@@ -248,7 +248,7 @@ The password for the next level is stored in the only human-readable file in the
 
 
 
-## Bandit Level 5 → 6
+## Bandit Level 5 to 6
 
 ### Login
 
@@ -288,7 +288,7 @@ The password for the next level is stored in a file somewhere under the **inhere
 
 
 
-## Bandit Level 6 → 7
+## Bandit Level 6 to 7
 
 ### Login
 
@@ -329,7 +329,7 @@ The password for the next level is stored **somewhere on the server** and has al
 
 
 
-## Bandit Level 7 → 8
+## Bandit Level 7 to 8
 
 ### Login
 
@@ -365,7 +365,7 @@ The password for the next level is stored in the file `data.txt` next to the wor
 
 
 
-## Bandit Level 8 → 9
+## Bandit Level 8 to 9
 
 ### Login
 
@@ -400,7 +400,7 @@ The password for the next level is stored in the file `data.txt` and is the only
 
 
 
-## Bandit Level 9 → 10
+## Bandit Level 9 to 10
 
 ### Login
 
@@ -436,7 +436,7 @@ The password for the next level is stored in the file `data.txt` in one of the f
 
 
 
-## Bandit Level 10 → 11
+## Bandit Level 10 to 11
 
 ### Login
 
@@ -472,7 +472,7 @@ The password for the next level is stored in the file `data.txt`, which contains
 
 
 
-## Bandit Level 11 → 12
+## Bandit Level 11 to 12
 
 ### Login
 
@@ -508,7 +508,7 @@ The password for the next level is stored in the file `data.txt`, where all lowe
 
 
 
-## Bandit Level 12 → 13
+## Bandit Level 12 to 13
 
 ### Login
 
@@ -544,7 +544,7 @@ The password for the next level is stored in the file `data.txt`, which is a hex
 
 
 
-## Bandit Level 13 → 14
+## Bandit Level 13 to 14
 
 ### Login
 
@@ -579,7 +579,7 @@ The password for the next level is stored in `/etc/bandit_pass/bandit14` and can
 
 
 
-## Bandit Level 14 → 15
+## Bandit Level 14 to 15
 
 ### Login
 
@@ -615,7 +615,7 @@ The password for the next level can be retrieved by submitting the password of t
 
 
 
-## Bandit Level 15 → 16
+## Bandit Level 15 to 16
 
 ### Login
 
@@ -653,7 +653,7 @@ Helpful note: Getting “DONE”, “RENEGOTIATING” or “KEYUPDATE”? Read t
 
 
 
-## Bandit Level 16 → 17
+## Bandit Level 16 to 17
 
 ### Login
 
@@ -690,7 +690,7 @@ Helpful note: Getting “DONE”, “RENEGOTIATING” or “KEYUPDATE”? Read t
 
 
 
-## Bandit Level 17 → 18
+## Bandit Level 17 to 18
 
 ### Login
 
@@ -728,7 +728,7 @@ NOTE: if you have solved this level and see ‘Byebye!’ when trying to log int
 
 
 
-## Bandit Level 18 → 19
+## Bandit Level 18 to 19
 
 ### Login
 
@@ -764,7 +764,7 @@ The password for the next level is stored in a file `readme` in the **homedirect
 
 
 
-## Bandit Level 19 → 20
+## Bandit Level 19 to 20
 
 ### Login
 
@@ -800,7 +800,7 @@ To gain access to the next level, you should use the setuid binary in the homedi
 
 
 
-## Bandit Level 20 → 21
+## Bandit Level 20 to 21
 
 ### Login
 
@@ -838,7 +838,7 @@ NOTE: Try connecting to your own network daemon to see if it works as you think.
 
 
 
-## Bandit Level 21 → 22
+## Bandit Level 21 to 22
 
 ### Login
 
@@ -874,7 +874,7 @@ A program is running automatically at regular intervals from **cron**, the time-
 
 
 
-## Bandit Level 22 → 23
+## Bandit Level 22 to 23
 
 ### Login
 
@@ -912,7 +912,7 @@ NOTE: Looking at shell scripts written by other people is a very useful skill. T
 
 
 
-## Bandit Level 23 → 24
+## Bandit Level 23 to 24
 
 ### Login
 
