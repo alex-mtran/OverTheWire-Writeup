@@ -28,7 +28,7 @@
 | [Level 23 → 24](#bandit-level-23-to-24) | Bash scripting | Cron jobs | Chmod |
 
 
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 ## Bandit Level 0
 
@@ -59,7 +59,7 @@ Input `bandit0` for password prompt.
 
 #
 [OverTheWire Bandit Level 0](https://overthewire.org/wargames/bandit/bandit0.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -96,7 +96,7 @@ The password for the next level is stored in a file called `readme` located in t
 
 #
 [OverTheWire Bandit Level 0 → 1](https://overthewire.org/wargames/bandit/bandit1.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -132,7 +132,7 @@ The password for the next level is stored in a file called `-` located in the **
 
 #
 [OverTheWire Bandit Level 1 → 2](https://overthewire.org/wargames/bandit/bandit2.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -168,7 +168,7 @@ The password for the next level is stored in a file called `--spaces in this fil
 
 #
 [OverTheWire Bandit Level 2 → 3](https://overthewire.org/wargames/bandit/bandit3.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -204,7 +204,7 @@ The password for the next level is stored in a hidden file in the **inhere** dir
 
 #
 [OverTheWire Bandit Level 3 → 4](https://overthewire.org/wargames/bandit/bandit4.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -239,7 +239,7 @@ The password for the next level is stored in the only human-readable file in the
 
 #
 [OverTheWire Bandit Level 4 → 5](https://overthewire.org/wargames/bandit/bandit5.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -278,7 +278,7 @@ The password for the next level is stored in a file somewhere under the **inhere
 
 #
 [OverTheWire Bandit Level 5 → 6](https://overthewire.org/wargames/bandit/bandit6.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -318,7 +318,7 @@ The password for the next level is stored **somewhere on the server** and has al
 
 #
 [OverTheWire Bandit Level 6 → 7](https://overthewire.org/wargames/bandit/bandit7.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -355,7 +355,7 @@ The password for the next level is stored in the file `data.txt` next to the wor
 
 #
 [OverTheWire Bandit Level 7 → 8](https://overthewire.org/wargames/bandit/bandit8.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -391,7 +391,7 @@ The password for the next level is stored in the file `data.txt` and is the only
 
 #
 [OverTheWire Bandit Level 8 → 9](https://overthewire.org/wargames/bandit/bandit9.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -426,7 +426,7 @@ The password for the next level is stored in the file `data.txt` in one of the f
 
 #
 [OverTheWire Bandit Level 9 → 10](https://overthewire.org/wargames/bandit/bandit10.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -462,7 +462,7 @@ The password for the next level is stored in the file `data.txt`, which contains
 
 #
 [OverTheWire Bandit Level 10 → 11](https://overthewire.org/wargames/bandit/bandit11.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -498,7 +498,7 @@ The password for the next level is stored in the file `data.txt`, where all lowe
 
 #
 [OverTheWire Bandit Level 11 → 12](https://overthewire.org/wargames/bandit/bandit12.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -534,7 +534,7 @@ The password for the next level is stored in the file `data.txt`, which is a hex
 
 #
 [OverTheWire Bandit Level 12 → 13](https://overthewire.org/wargames/bandit/bandit13.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -569,7 +569,7 @@ The password for the next level is stored in `/etc/bandit_pass/bandit14` and can
 
 #
 [OverTheWire Bandit Level 13 → 14](https://overthewire.org/wargames/bandit/bandit14.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -605,7 +605,7 @@ The password for the next level can be retrieved by submitting the password of t
 
 #
 [OverTheWire Bandit Level 14 → 15](https://overthewire.org/wargames/bandit/bandit15.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -643,7 +643,7 @@ Helpful note: Getting “DONE”, “RENEGOTIATING” or “KEYUPDATE”? Read t
 
 #
 [OverTheWire Bandit Level 15 → 16](https://overthewire.org/wargames/bandit/bandit16.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -680,7 +680,7 @@ Helpful note: Getting “DONE”, “RENEGOTIATING” or “KEYUPDATE”? Read t
 
 #
 [OverTheWire Bandit Level 16 → 17](https://overthewire.org/wargames/bandit/bandit17.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -718,7 +718,7 @@ NOTE: if you have solved this level and see ‘Byebye!’ when trying to log int
 
 #
 [OverTheWire Bandit Level 17 → 18](https://overthewire.org/wargames/bandit/bandit18.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -754,7 +754,7 @@ The password for the next level is stored in a file `readme` in the **homedirect
 
 #
 [OverTheWire Bandit Level 18 → 19](https://overthewire.org/wargames/bandit/bandit19.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -790,7 +790,7 @@ To gain access to the next level, you should use the setuid binary in the homedi
 
 #
 [OverTheWire Bandit Level 19 → 20](https://overthewire.org/wargames/bandit/bandit20.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -828,7 +828,7 @@ NOTE: Try connecting to your own network daemon to see if it works as you think.
 
 #
 [OverTheWire Bandit Level 20 → 21](https://overthewire.org/wargames/bandit/bandit21.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -864,7 +864,7 @@ A program is running automatically at regular intervals from **cron**, the time-
 
 #
 [OverTheWire Bandit Level 21 → 22](https://overthewire.org/wargames/bandit/bandit22.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
@@ -902,7 +902,7 @@ NOTE: Looking at shell scripts written by other people is a very useful skill. T
 
 #
 [OverTheWire Bandit Level 22 → 23](https://overthewire.org/wargames/bandit/bandit23.html)
-<div style="height: 20em;"></div>
+<br><br><br><br><br><br><br><br><br>
 
 
 
