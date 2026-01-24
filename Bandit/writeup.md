@@ -44,7 +44,7 @@ The goal of this level is for you to log into the game using **ssh**. The host t
 
 #
 
-### Theory
+### High Level Theory
 
 Use `man command` to look up the manual on command. In this case use `man ssh`.
 
@@ -86,7 +86,7 @@ The password for the next level is stored in a file called `readme` located in t
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -122,7 +122,7 @@ The password for the next level is stored in a file called `-` located in the **
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -158,7 +158,7 @@ The password for the next level is stored in a file called `--spaces in this fil
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -194,7 +194,7 @@ The password for the next level is stored in a hidden file in the **inhere** dir
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -229,7 +229,7 @@ The password for the next level is stored in the only human-readable file in the
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -268,7 +268,7 @@ The password for the next level is stored in a file somewhere under the **inhere
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -308,7 +308,7 @@ The password for the next level is stored **somewhere on the server** and has al
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -345,7 +345,7 @@ The password for the next level is stored in the file `data.txt` next to the wor
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -381,7 +381,7 @@ The password for the next level is stored in the file `data.txt` and is the only
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -416,7 +416,7 @@ The password for the next level is stored in the file `data.txt` in one of the f
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -452,7 +452,7 @@ The password for the next level is stored in the file `data.txt`, which contains
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -488,7 +488,7 @@ The password for the next level is stored in the file `data.txt`, where all lowe
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -524,7 +524,7 @@ The password for the next level is stored in the file `data.txt`, which is a hex
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -559,7 +559,7 @@ The password for the next level is stored in `/etc/bandit_pass/bandit14` and can
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -595,7 +595,7 @@ The password for the next level can be retrieved by submitting the password of t
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -633,7 +633,7 @@ Helpful note: Getting “DONE”, “RENEGOTIATING” or “KEYUPDATE”? Read t
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -670,7 +670,7 @@ Helpful note: Getting “DONE”, “RENEGOTIATING” or “KEYUPDATE”? Read t
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -708,7 +708,7 @@ NOTE: if you have solved this level and see ‘Byebye!’ when trying to log int
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -744,7 +744,7 @@ The password for the next level is stored in a file `readme` in the **homedirect
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -780,7 +780,7 @@ To gain access to the next level, you should use the setuid binary in the homedi
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -818,7 +818,7 @@ NOTE: Try connecting to your own network daemon to see if it works as you think.
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -854,7 +854,7 @@ A program is running automatically at regular intervals from **cron**, the time-
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -892,7 +892,7 @@ NOTE: Looking at shell scripts written by other people is a very useful skill. T
 
 #
 
-### Theory
+### High Level Theory
 
 
 #
@@ -929,9 +929,13 @@ A program is running automatically at regular intervals from **cron**, the time-
 
 #
 
-### Theory
+### High Level Theory
 
-This level introduces bash scripting and emphasizes understanding Unix file and directory permissions.
+This level introduces bash scripting and emphasizes understanding Unix file and directory permissions. <br>
+
+First, inspect bandit24 cronjob to find where bandit24 would execute commands under its own permissions. <br>
+Second, create a bash script that will use bandit24 permissions to reveal the bandit24 password (in `/etc/bandit_pass/bandit24`). <br>
+Third, copy bandit24 password into a file that is **readable** by bandit23 and into a directory that is both **writable** and **executable** by bandit24.
 
 #
 
@@ -998,7 +1002,7 @@ bandit23@bandit:/tmp/tmp.jM8r8g1SvP$ chmod 777 /tmp/tmp.jM8r8g1SvP
 ```
 
 * Necessary folder permission modification to ensure that when the cron job runs as **bandit24**, they will have permissions to send to this temp directory.
-* Directory to be copied to must be **writable** by bandit24 (and executable if bandit24 is not the directory owner) (777 for example)
+* Directory to be copied to must be **writable** by bandit24 (and also **executable** if bandit24 is not the directory owner) (777 for example)
 
 ```bash
 bandit23@bandit:/tmp/tmp.jM8r8g1SvP$ nano pass.sh
@@ -1011,7 +1015,7 @@ bandit23@bandit:/tmp/tmp.jM8r8g1SvP$ nano pass.sh
 cat /etc/bandit_pass/bandit24 > /tmp/tmp.jM8r8g1SvP/password
 chmod 744 /tmp/tmp.jM8r8g1SvP/password
 ```
-* This script reads the **bandit24** password to a file we have access to and makes it **readable** by other users.
+* This script reads the **bandit24** password to a file bandit23 has access to and makes it **readable** by other users.
 #
 
 
