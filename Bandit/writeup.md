@@ -88,11 +88,27 @@ The password for the next level is stored in a file called `readme` located in t
 
 ### High Level Theory
 
+```bash
+cat
+```
+Outputs file contents.
 
 #
 
 ### Steps
 
+```bash
+bandit0@bandit:~$ ls
+readme
+```
+#
+Output password
+```bash
+bandit0@bandit:~$ cat readme
+...
+...
+The password you are looking for is: [password12]
+```
 
 #
 [OverTheWire Bandit Level 0 → 1](https://overthewire.org/wargames/bandit/bandit1.html)
@@ -124,11 +140,24 @@ The password for the next level is stored in a file called `-` located in the **
 
 ### High Level Theory
 
+`./` accesses current directory.
 
 #
 
 ### Steps
 
+```bash
+bandit1@bandit:~$ ls
+-
+```
+
+#
+Output password
+
+```bash
+bandit1@bandit:~$ cat ./-
+[password23]
+```
 
 #
 [OverTheWire Bandit Level 1 → 2](https://overthewire.org/wargames/bandit/bandit2.html)
@@ -160,11 +189,31 @@ The password for the next level is stored in a file called `--spaces in this fil
 
 ### High Level Theory
 
+**Home** directory is the directory that starts with `~`. For example: <br>
+```bash
+bandit2@bandit:~$
+```
+
+Always use tab completion to finish paths. Being able to tab complete will ensure correct spelling and that there is indeed a file/folder/whatever there.
+
+NOTE: Excluding this level, all inputs will be tab completed without indication wherever possible.
 
 #
 
 ### Steps
 
+```bash
+bandit2@bandit:~$ ls
+--spaces in this filename--
+```
+
+#
+
+Output password
+```bash
+bandit2@bandit:~$ cat ./--spaces\ in\ this\ filename--
+[password34]
+```
 
 #
 [OverTheWire Bandit Level 2 → 3](https://overthewire.org/wargames/bandit/bandit3.html)
@@ -196,11 +245,39 @@ The password for the next level is stored in a hidden file in the **inhere** dir
 
 ### High Level Theory
 
+Files starting with `.` are hidden files and won't be displayed using `ls` by itself.
+
+
+Flags are added to commands to alter their behavior/function. To learn more about specific flags, research online or through the manual page by typing `man [command]`.
+
+```bash
+ls -la
+```
+This command has two flags, `-l` and `-a` which were appended in shorthand to be `-la`.
+
+`-l`: use a long listing format <br>
+`-a`: use to not ignore entries starting with `.` (hidden files)
 
 #
 
 ### Steps
 
+```bash
+bandit3@bandit:~$ ls
+inhere
+bandit3@bandit:~$ ls -la inhere/
+total 12
+drwxr-xr-x 2 root       root    4096    Oct 14 09:26    .
+drwxr-xr-x 3 root       root    4096    Oct 14 09:26    ..
+-rw-r----- 1 bandit4    bandit3 33      Oct 14 09:26    ...Hiding-From-You
+```
+#
+
+Output password
+```bash
+bandit3@bandit:~$ cat inhere/...Hiding-From-You
+[password45]
+```
 
 #
 [OverTheWire Bandit Level 3 → 4](https://overthewire.org/wargames/bandit/bandit4.html)
@@ -231,12 +308,29 @@ The password for the next level is stored in the only human-readable file in the
 
 ### High Level Theory
 
-
+Use the fact that human-readable files will display as
+```bash
+[filename]: ASCII text
+```
+when used with `file` command.
 #
 
 ### Steps
 
+```bash
+bandit4@bandit:~$ ls
+inhere
+bandit4@bandit:~$ cd inhere/
+bandit4@bandit:~/inhere$ find -exec file {} + | grep ASCII
+./-file07: ASCII text
+```
+#
 
+Output password
+```bash
+bandit4@bandit:~/inhere$ cat ./-file07
+[password56]
+```
 #
 [OverTheWire Bandit Level 4 → 5](https://overthewire.org/wargames/bandit/bandit5.html)
 <br><br><br><br><br><br><br><br><br>
@@ -270,11 +364,26 @@ The password for the next level is stored in a file somewhere under the **inhere
 
 ### High Level Theory
 
+Pipe the file that fulfills the properties of 1033 bytes in size and not executable alongside `grep ASCII` to find the one file that fulfills all conditions.
 
 #
 
 ### Steps
 
+```bash
+bandit5@bandit:~$ ls
+inhere
+bandit5@bandit:~$ cd inhere/
+bandit5@bandit:~/inhere$ find . -size 1033c ! -executable -exec file {} + | grep ASCII
+./maybehere07/.file2: ASCII text, with very long lines (1000)
+```
+#
+
+Output password
+```bash
+bandit5@bandit:~/inhere$ cat ./maybehere07/.file2
+[password67]
+```
 
 #
 [OverTheWire Bandit Level 5 → 6](https://overthewire.org/wargames/bandit/bandit6.html)
