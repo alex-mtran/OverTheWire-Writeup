@@ -364,7 +364,7 @@ The password for the next level is stored in a file somewhere under the **inhere
 
 ### High Level Theory
 
-Pipe the file that fulfills the properties of 1033 bytes in size and not executable alongside `grep ASCII` to find the one file that fulfills all conditions.
+Pipe the file that fulfills the properties of 1033 bytes in size (`find -size 1033c`) and not executable (`find ! executable`) alongside `grep ASCII` to find the one file that fulfills all conditions.
 
 #
 
@@ -419,12 +419,20 @@ The password for the next level is stored **somewhere on the server** and has al
 
 ### High Level Theory
 
+Use series of commands and flags to specify the password listed **somewhere on the server** (`/`), owned by user bandit7 (`find -user bandit7`), group bandit6 (`find -group bandit6`), and 33 bytes in size (`find -size 33c`).
 
 #
 
 ### Steps
 
-
+Output password
+```bash
+bandit6@bandit:~$ find / -user bandit7 -group bandit6 -size 33c 2>/dev/null -exec cat {} \;
+[password78]
+```
+* Everything following `-exec cat` is to output the file found with the specifications of the `find` command.
+* `2>/dev/null` is used to send **stderrs** (denoted as `2>` here) to `/dev/null` which discards anything sent to it.
+    * This is needed because the find command with the flags alone will output a large amount of files that fit the description but are **stderrs** due to permissions and such.
 #
 [OverTheWire Bandit Level 6 → 7](https://overthewire.org/wargames/bandit/bandit7.html)
 <br><br><br><br><br><br><br><br><br>
@@ -456,11 +464,20 @@ The password for the next level is stored in the file `data.txt` next to the wor
 
 ### High Level Theory
 
+```bash
+grep
+```
+Outputs lines in which include the specified word/phrase.
 
 #
 
 ### Steps
 
+Output password
+```bash
+bandit7@bandit:~$ grep millionth data.txt
+millionth       [password89]
+```
 
 #
 [OverTheWire Bandit Level 7 → 8](https://overthewire.org/wargames/bandit/bandit8.html)
@@ -492,11 +509,53 @@ The password for the next level is stored in the file `data.txt` and is the only
 
 ### High Level Theory
 
+```bash
+uniq -u
+```
+Outputs lines that do not have adjacent duplicates.
 
+Examples:
+```bash
+HI
+HI
+hi
+
+outputs:
+hi
+```
+```bash
+HI
+hi
+HI
+
+outputs:
+HI
+hi
+HI
+```
+```bash
+HI
+
+HI
+
+outputs:
+HI
+
+HI
+```
+
+Thus, to check for global uniqueness within a file it is necessary to first use `sort` and then pipe that output as the input into `uniq -u`.
+
+`|` pipes the output of the first command as the input of the second command.
 #
 
 ### Steps
 
+Output password
+```bash
+bandit8@bandit:~$ sort data.txt | uniq -u
+[password910]
+```
 
 #
 [OverTheWire Bandit Level 8 → 9](https://overthewire.org/wargames/bandit/bandit9.html)
@@ -527,11 +586,21 @@ The password for the next level is stored in the file `data.txt` in one of the f
 
 ### High Level Theory
 
+Pipe `strings` to `grep`, checking for lines with **==**.
 
 #
 
 ### Steps
 
+Output password
+```bash
+bandit9@bandit:~$ strings data.txt | grep ==
+========== the
+========== password
+E========== is
+5========== [password1011]
+
+```
 
 #
 [OverTheWire Bandit Level 9 → 10](https://overthewire.org/wargames/bandit/bandit10.html)
@@ -563,10 +632,19 @@ The password for the next level is stored in the file `data.txt`, which contains
 
 ### High Level Theory
 
-
+```bash
+base64 -d
+```
+Outputs a decoded base64 text.
 #
 
 ### Steps
+
+Output password
+```bash
+bandit10@bandit:~$ base64 -d data.txt
+The password is [password1112]
+```
 
 
 #
@@ -1093,7 +1171,7 @@ done
 ```
 
 * The script runs as **bandit24**, so `myname` = `bandit24` → changes directory to `/var/spool/bandit24`.
-* It iterates over all files, including hidden ones (except `.` and `..`)
+* It iterates over all files, including hidden ones (except `.` and `..`).
 * If a file is **owned by bandit23**, it is executed (with a 60‑second timeout).
 * Regardless of execution, the file is then deleted.
 
@@ -1111,7 +1189,7 @@ bandit23@bandit:/tmp/tmp.jM8r8g1SvP$ chmod 777 /tmp/tmp.jM8r8g1SvP
 ```
 
 * Necessary folder permission modification to ensure that when the cron job runs as **bandit24**, they will have permissions to send to this temp directory.
-* Directory to be copied to must be **writable** by bandit24 (and also **executable** if bandit24 is not the directory owner) (777 for example)
+* Directory to be copied to must be **writable** by bandit24 (and also **executable** if bandit24 is not the directory owner) (777 for example).
 
 ```bash
 bandit23@bandit:/tmp/tmp.jM8r8g1SvP$ nano pass.sh
@@ -1131,7 +1209,7 @@ chmod 744 /tmp/tmp.jM8r8g1SvP/password
 ```bash
 bandit23@bandit:/tmp/tmp.jM8r8g1SvP$ chmod 755 bandit24_pass.sh
 ```
-* `pass.sh` needs to be **readable and executable** by bandit24 (755 for example)
+* `pass.sh` needs to be **readable and executable** by bandit24 (755 for example).
 
 ```bash
 cp pass.sh /var/spool/bandit24/foo/
@@ -1146,7 +1224,7 @@ cat /etc/bandit_pass/bandit24 > /tmp/tmp.yunUI4swMy/password
 chmod 744 /tmp/tmp.yunUI4swMy/password
 ```
 
-* NOTE: Must wait til cronjob runs `pass.sh` which can be checked by using `ls` within the tempdir and seeing the `password` file or by running the sanity check again and seeing
+* NOTE: Must wait til cronjob runs `pass.sh` which can be checked by using `ls` within the tempdir and seeing the `password` file or by running the sanity check again and seeing.
 
 ```bash
 cat: /var/spool/bandit24/foo/pass.sh: No such file or directory
