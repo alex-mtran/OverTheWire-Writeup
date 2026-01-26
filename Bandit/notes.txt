@@ -171,36 +171,38 @@ Gzip			1f 8b 08
 Bzip2			42 5a 68
 Tar				7573 7461 7220 (ustar offset 257)
 file and xxd can be used to identify file types
-
+(temp file path) is the generated temp file to be used.
+(reveals...) and (adds...) is not to be inputted as a command but is just there as notes.
 Steps:
 	mktemp -d
-	cd (temp directory)
+	cd (temp file path)
 	cp ~/data.txt .
 	xxd -r data.txt > binary
-	file binary
+	file binary (reveals gzip compressed data)
 	mv binary binary.gz
 	gunzip binary.gz
-	file binary
+	file binary (reveals bzip2 compressed data)
 	mv binary binary.bz2
 	bunzip2 binary.bz2
-	file binary
+	file binary (reveals gzip compressed data)
 	mv binary binary.gz
 	gunzip binary.gz
-	file binary
+	file binary (reveals POSIX tar archive)
 	mv binary binary.tar
-	tar -xf binary.tar
-	file data5.bin
+	tar -xf binary.tar (adds data5.bin file to directory)
+	file data5.bin (reveals POSIX tar archive)
 	mv data5.bin data5.tar
-	tar -xf data5.tar
-	file data6.bin
+	tar -xf data5.tar (adds data6.bin file to directory)
+	file data6.bin (reveals bzip2 compressed data)
 	mv data6.bin data6.bz2
-	file data6
+	bunzip2 data6.bz2 (adds data6 file to directory)
+	file data6 (reveals POSIX tar archive)
 	mv data6 data6.tar
-	tar -xf data6.tar
-	file data8.bin
+	tar -xf data6.tar (adds data8.bin file to directory)
+	file data8.bin (reveals gzip compressed data)
 	mv data8.bin data8.gz
 	gunzip data8.gz
-	file data8
+	file data8 (reveals ASCII text)
 
 
 

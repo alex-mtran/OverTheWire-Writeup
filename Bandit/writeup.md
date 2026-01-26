@@ -677,11 +677,20 @@ The password for the next level is stored in the file `data.txt`, where all lowe
 
 ### High Level Theory
 
+```bash
+tr [] []
+```
+Outputs the input after translating (rotating) characters in the first group to the second.
 
 #
 
 ### Steps
 
+Output password
+```bash
+bandit11@bandit:~$ cat data.txt | tr [A-Za-z] [N-ZA-Mn-za-m]
+The password is [password1213]
+```
 
 #
 [OverTheWire Bandit Level 11 → 12](https://overthewire.org/wargames/bandit/bandit12.html)
@@ -713,12 +722,78 @@ The password for the next level is stored in the file `data.txt`, which is a hex
 
 ### High Level Theory
 
+Each compression type (`tar`, `gzip`, `bzip2`) has magic bytes (in hexadecimal) used in the header. Either use `file` command or look to the headers of the text to determine what compression type is used and decompress accordingly.
 
+```bash
+xxd input | head
+```
+Outputs the top 10 bytes of the file
+
+After determining the compression type, rename the file using `mv` to the appropriate file extension in order to decompress using the specific decompression methods.
+
+NOTE: `(temp directory path)` is a generated directory path that is randomly generated. Use the one provided to you and do not input `(temp directory path)` verbatim in the commands below.
 #
 
 ### Steps
 
+```bash
+bandit12@bandit:~$ mktemp -d
+(temp directory path)
+bandit12@bandit:~$ cd (temp directory path)
+bandit12@bandit:(temp directory path)$ cp ~/data.txt .
+bandit12@bandit:(temp directory path)$ xxd -r data.txt > binary
+bandit12@bandit:(temp directory path)$ file binary
+binary: gzip compressed data, was "data2.bin", last modified: Tue Oct 14 09:26:00 2025, max compression, from Unix, original size modulo 2^32 572
+bandit12@bandit:(temp directory path)$ mv binary binary.gz
+bandit12@bandit:(temp directory path)$ ls
+binary.gz  data.txt
+bandit12@bandit:(temp directory path)$ gunzip binary.gz
+bandit12@bandit:(temp directory path)$ file binary
+binary: bzip2 compressed data, block size = 900k
+bandit12@bandit:(temp directory path)$ mv binary binary.bz2
+bandit12@bandit:(temp directory path)$ bunzip2 binary.bz2
+bandit12@bandit:(temp directory path)$ file binary
+binary: gzip compressed data, was "data4.bin", last modified: Tue Oct 14 09:26:00 2025, max compression, from Unix, original size modulo 2^32 20480
+bandit12@bandit:(temp directory path)$ mv binary binary.gz
+bandit12@bandit:(temp directory path)$ gunzip binary.gz
+bandit12@bandit:(temp directory path)$ file binary
+binary: POSIX tar archive (GNU)
+bandit12@bandit:(temp directory path)$
+bandit12@bandit:(temp directory path)$ mv binary binary.tar
+bandit12@bandit:(temp directory path)$ tar -xf binary.tar
+bandit12@bandit:(temp directory path)$ ls
+binary.tar  data5.bin  data.txt
+bandit12@bandit:(temp directory path)$ file data5.bin
+data5.bin: POSIX tar archive (GNU)
+bandit12@bandit:(temp directory path)$ mv data5.bin data5.tar
+bandit12@bandit:(temp directory path)$ tar -xf data5.tar
+bandit12@bandit:(temp directory path)$ ls
+binary.tar  data5.tar  data6.bin  data.txt
+bandit12@bandit:(temp directory path)$ file data6.bin
+data6.bin: bzip2 compressed data, block size = 900k
+bandit12@bandit:(temp directory path)$ mv data6.bin data6.bz2
+bandit12@bandit:(temp directory path)$ bunzip2 data6.bz2
+bandit12@bandit:(temp directory path)$ file data6
+data6: POSIX tar archive (GNU)
+bandit12@bandit:(temp directory path)$ mv data6 data6.tar
+bandit12@bandit:(temp directory path)$ tar -xf data6.tar
+bandit12@bandit:(temp directory path)$ ls
+binary.tar  data5.tar  data6.tar  data8.bin  data.txt
+bandit12@bandit:(temp directory path)$ file data8.bin
+data8.bin: gzip compressed data, was "data9.bin", last modified: Tue Oct 14 09:26:00 2025, max compression, from Unix, original size modulo 2^32 49
+bandit12@bandit:(temp directory path)$
+bandit12@bandit:(temp directory path)$ mv data8.bin data8.gz
+bandit12@bandit:(temp directory path)$ gunzip data8.gz
+bandit12@bandit:(temp directory path)$ file data8
+data8: ASCII text
+```
 
+Output password
+
+```bash
+bandit12@bandit:(temp directory path)$ cat data8
+The password is [password1314]
+```
 #
 [OverTheWire Bandit Level 12 → 13](https://overthewire.org/wargames/bandit/bandit13.html)
 <br><br><br><br><br><br><br><br><br>
