@@ -758,7 +758,6 @@ bandit12@bandit:(temp directory path)$ mv binary binary.gz
 bandit12@bandit:(temp directory path)$ gunzip binary.gz
 bandit12@bandit:(temp directory path)$ file binary
 binary: POSIX tar archive (GNU)
-bandit12@bandit:(temp directory path)$
 bandit12@bandit:(temp directory path)$ mv binary binary.tar
 bandit12@bandit:(temp directory path)$ tar -xf binary.tar
 bandit12@bandit:(temp directory path)$ ls
@@ -781,7 +780,6 @@ bandit12@bandit:(temp directory path)$ ls
 binary.tar  data5.tar  data6.tar  data8.bin  data.txt
 bandit12@bandit:(temp directory path)$ file data8.bin
 data8.bin: gzip compressed data, was "data9.bin", last modified: Tue Oct 14 09:26:00 2025, max compression, from Unix, original size modulo 2^32 49
-bandit12@bandit:(temp directory path)$
 bandit12@bandit:(temp directory path)$ mv data8.bin data8.gz
 bandit12@bandit:(temp directory path)$ gunzip data8.gz
 bandit12@bandit:(temp directory path)$ file data8
