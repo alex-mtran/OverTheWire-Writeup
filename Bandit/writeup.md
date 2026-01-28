@@ -586,7 +586,7 @@ The password for the next level is stored in the file `data.txt` in one of the f
 
 ### High Level Theory
 
-Pipe `strings` to `grep`, checking for lines with **==**.
+Pipe `strings` of data file to `grep`, checking for lines with **==**.
 
 #
 
