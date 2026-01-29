@@ -75,9 +75,9 @@ Input `bandit0` for password prompt.
 ### Login
 
 ```bash
-ssh -p 2220 bandit1@bandit.labs.overthewire.org
+ssh -p 2220 bandit0@bandit.labs.overthewire.org
 ```
-Password: [bandit01]
+Password: bandit0
 #
 
 ### Description
@@ -127,7 +127,7 @@ The password you are looking for is: [password12]
 ### Login
 
 ```bash
-ssh -p 2220 bandit2@bandit.labs.overthewire.org
+ssh -p 2220 bandit1@bandit.labs.overthewire.org
 ```
 Password: [bandit12]
 #
@@ -176,7 +176,7 @@ bandit1@bandit:~$ cat ./-
 ### Login
 
 ```bash
-ssh -p 2220 bandit3@bandit.labs.overthewire.org
+ssh -p 2220 bandit2@bandit.labs.overthewire.org
 ```
 Password: [bandit23]
 #
@@ -232,7 +232,7 @@ bandit2@bandit:~$ cat ./--spaces\ in\ this\ filename--
 ### Login
 
 ```bash
-ssh -p 2220 bandit4@bandit.labs.overthewire.org
+ssh -p 2220 bandit3@bandit.labs.overthewire.org
 ```
 Password: [bandit34]
 #
@@ -295,7 +295,7 @@ bandit3@bandit:~$ cat inhere/...Hiding-From-You
 ### Login
 
 ```bash
-ssh -p 2220 bandit5@bandit.labs.overthewire.org
+ssh -p 2220 bandit4@bandit.labs.overthewire.org
 ```
 Password: [bandit45]
 #
@@ -347,7 +347,7 @@ bandit4@bandit:~/inhere$ cat ./-file07
 ### Login
 
 ```bash
-ssh -p 2220 bandit6@bandit.labs.overthewire.org
+ssh -p 2220 bandit5@bandit.labs.overthewire.org
 ```
 Password: [bandit56]
 #
@@ -402,7 +402,7 @@ bandit5@bandit:~/inhere$ cat ./maybehere07/.file2
 ### Login
 
 ```bash
-ssh -p 2220 bandit7@bandit.labs.overthewire.org
+ssh -p 2220 bandit6@bandit.labs.overthewire.org
 ```
 Password: [bandit67]
 #
@@ -431,6 +431,7 @@ bandit6@bandit:~$ find / -user bandit7 -group bandit6 -size 33c 2>/dev/null -exe
 [password78]
 ```
 * Everything following `-exec cat` is to output the file found with the specifications of the `find` command.
+    * Backslash is needed to use `;`
 * `2>/dev/null` is used to send **stderrs** (denoted as `2>` here) to `/dev/null` which discards anything sent to it.
     * This is needed because the find command with the flags alone will output a large amount of files that fit the description but are **stderrs** due to permissions and such.
 #
@@ -451,7 +452,7 @@ bandit6@bandit:~$ find / -user bandit7 -group bandit6 -size 33c 2>/dev/null -exe
 ### Login
 
 ```bash
-ssh -p 2220 bandit8@bandit.labs.overthewire.org
+ssh -p 2220 bandit7@bandit.labs.overthewire.org
 ```
 Password: [bandit78]
 #
@@ -496,7 +497,7 @@ millionth       [password89]
 ### Login
 
 ```bash
-ssh -p 2220 bandit9@bandit.labs.overthewire.org
+ssh -p 2220 bandit8@bandit.labs.overthewire.org
 ```
 Password: [bandit89]
 #
@@ -573,7 +574,7 @@ bandit8@bandit:~$ sort data.txt | uniq -u
 ### Login
 
 ```bash
-ssh -p 2220 bandit10@bandit.labs.overthewire.org
+ssh -p 2220 bandit9@bandit.labs.overthewire.org
 ```
 Password: [bandit910]
 #
@@ -619,7 +620,7 @@ E========== is
 ### Login
 
 ```bash
-ssh -p 2220 bandit11@bandit.labs.overthewire.org
+ssh -p 2220 bandit10@bandit.labs.overthewire.org
 ```
 Password: [bandit1011]
 #
@@ -664,7 +665,7 @@ The password is [password1112]
 ### Login
 
 ```bash
-ssh -p 2220 bandit12@bandit.labs.overthewire.org
+ssh -p 2220 bandit11@bandit.labs.overthewire.org
 ```
 Password: [bandit1112]
 #
@@ -709,7 +710,7 @@ The password is [password1213]
 ### Login
 
 ```bash
-ssh -p 2220 bandit13@bandit.labs.overthewire.org
+ssh -p 2220 bandit12@bandit.labs.overthewire.org
 ```
 Password: [bandit1213]
 #
@@ -745,8 +746,6 @@ bandit12@bandit:(temp directory path)$ xxd -r data.txt > binary
 bandit12@bandit:(temp directory path)$ file binary
 binary: gzip compressed data, was "data2.bin", last modified: Tue Oct 14 09:26:00 2025, max compression, from Unix, original size modulo 2^32 572
 bandit12@bandit:(temp directory path)$ mv binary binary.gz
-bandit12@bandit:(temp directory path)$ ls
-binary.gz  data.txt
 bandit12@bandit:(temp directory path)$ gunzip binary.gz
 bandit12@bandit:(temp directory path)$ file binary
 binary: bzip2 compressed data, block size = 900k
@@ -809,8 +808,9 @@ The password is [password1314]
 ### Login
 
 ```bash
-ssh -p 2220 -i sshkey14.private bandit7@bandit.labs.overthewire.org
+ssh -p 2220 bandit13@bandit.labs.overthewire.org
 ```
+Password: [password1314]
 #
 
 ### Description
@@ -844,9 +844,8 @@ The password for the next level is stored in `/etc/bandit_pass/bandit14` and can
 ### Login
 
 ```bash
-ssh -p 2220 bandit15@bandit.labs.overthewire.org
+ssh -p 2220 -i sshkey14.private bandit14@bandit.labs.overthewire.org
 ```
-Password: [bandit1415]
 #
 
 ### Description
@@ -880,7 +879,7 @@ The password for the next level can be retrieved by submitting the password of t
 ### Login
 
 ```bash
-ssh -p 2220 bandit16@bandit.labs.overthewire.org
+ssh -p 2220 bandit15@bandit.labs.overthewire.org
 ```
 Password: [bandit1516]
 #
@@ -918,7 +917,7 @@ Helpful note: Getting “DONE”, “RENEGOTIATING” or “KEYUPDATE”? Read t
 ### Login
 
 ```bash
-ssh -p 2220 -i sshkey16.private bandit7@bandit.labs.overthewire.org
+ssh -p 2220 -i sshkey16.private bandit16@bandit.labs.overthewire.org
 ```
 #
 
@@ -955,7 +954,7 @@ Helpful note: Getting “DONE”, “RENEGOTIATING” or “KEYUPDATE”? Read t
 ### Login
 
 ```bash
-ssh -p 2220 bandit18@bandit.labs.overthewire.org
+ssh -p 2220 bandit17@bandit.labs.overthewire.org
 ```
 Password: [bandit1718]
 #
@@ -993,7 +992,7 @@ NOTE: if you have solved this level and see ‘Byebye!’ when trying to log int
 ### Login
 
 ```bash
-ssh -p 2220 bandit19@bandit.labs.overthewire.org
+ssh -p 2220 bandit18@bandit.labs.overthewire.org
 ```
 Password: [bandit1819]
 #
@@ -1029,7 +1028,7 @@ The password for the next level is stored in a file `readme` in the **homedirect
 ### Login
 
 ```bash
-ssh -p 2220 bandit20@bandit.labs.overthewire.org
+ssh -p 2220 bandit19@bandit.labs.overthewire.org
 ```
 Password: [bandit1920]
 #
@@ -1065,7 +1064,7 @@ To gain access to the next level, you should use the setuid binary in the homedi
 ### Login
 
 ```bash
-ssh -p 2220 bandit21@bandit.labs.overthewire.org
+ssh -p 2220 bandit20@bandit.labs.overthewire.org
 ```
 Password: [bandit2021]
 #
@@ -1103,7 +1102,7 @@ NOTE: Try connecting to your own network daemon to see if it works as you think.
 ### Login
 
 ```bash
-ssh -p 2220 bandit22@bandit.labs.overthewire.org
+ssh -p 2220 bandit21@bandit.labs.overthewire.org
 ```
 Password: [bandit2122]
 #
@@ -1139,7 +1138,7 @@ A program is running automatically at regular intervals from **cron**, the time-
 ### Login
 
 ```bash
-ssh -p 2220 bandit23@bandit.labs.overthewire.org
+ssh -p 2220 bandit22@bandit.labs.overthewire.org
 ```
 Password: [bandit2223]
 #
@@ -1177,7 +1176,7 @@ NOTE: Looking at shell scripts written by other people is a very useful skill. T
 ### Login
 
 ```bash
-ssh -p 2220 bandit0@bandit.labs.overthewire.org
+ssh -p 2220 bandit23@bandit.labs.overthewire.org
 ```
 Password: [password2223]
 

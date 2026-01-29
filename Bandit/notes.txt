@@ -15,14 +15,14 @@ Steps:
 
 
 
-lvl 0 -> 1: [password01]
+lvl 0 -> 1: bandit0
 Notes:
 use ls to list content; cat to output content to terminal
 
 Steps:
 	ls
 	cat readme
-
+[password12]
 
 
 
@@ -34,7 +34,7 @@ Notes:
 Steps:
 	ls
 	cat ./-
-
+[password23]
 
 
 
@@ -46,7 +46,7 @@ always use tab complete
 Steps:
 	ls
 	cat ./-
-
+[password34]
 
 
 
@@ -58,7 +58,7 @@ ls -a lists hidden content in directory as well
 Steps:
 	ls inhere/ -a
 	cat inhere/...H (tab complete this)
-
+[password45]
 
 
 
@@ -74,7 +74,7 @@ Steps:
 	cd inhere/
 	find -exec file {} + | grep ASCII
 	cat ./-file07
-
+[password56]
 
 
 
@@ -89,7 +89,7 @@ Steps:
 	cd inhere/
 	find . -size 1033c ! -executable -exec file {} + | grep ASCII
 	cat ./maybehere07/.file2
-
+[password67]
 
 
 
@@ -103,7 +103,7 @@ find / searches entire server instead of from root directory ~
 
 Steps:
 	find / -user bandit7 -group bandit6 -size 33c 2>/dev/null -exec cat {} \;
-
+[password78]
 
 
 
@@ -115,7 +115,7 @@ use "" around the string phrase to search for if string has spaces
 Steps:
 	ls
 	grep millionth data.txt
-
+[password89]
 
 
 
@@ -126,7 +126,7 @@ uniq -u outputs lines that do not have duplicates
 
 Steps:
 	sort data.txt | uniq -u
-
+[password910]
 
 
 
@@ -136,7 +136,7 @@ Notes:
 
 Steps:
 	strings data.txt | grep ==
-
+[password1011]
 
 
 
@@ -147,7 +147,7 @@ base64 -d decodes instead of encodes
 
 Steps:
 	base64 -d data.txt
-
+[password1112]
 
 
 
@@ -159,7 +159,7 @@ ROT13 shifts letters by 13 positions
 	
 Steps:
 	cat data.txt | tr [A-Za-z] [N-ZA-Mn-za-m]
-
+[password1213]
 
 
 
@@ -203,12 +203,12 @@ Steps:
 	mv data8.bin data8.gz
 	gunzip data8.gz
 	file data8 (reveals ASCII text)
+	cat data8
+[password1314]
 
 
 
-
-
-lvl 13 -> 14: ssh -p 2220 -i privatekeyfilelocal bandit14@bandit.labs.overthewire.org
+lvl 13 -> 14: [password1314]
 Notes:
 ssh -i specifies the identity file for public key authentication
 
@@ -216,19 +216,19 @@ Steps:
 	exit
 	scp -P 2220 bandit13@bandit.labs.overthewire.org:privatekeyfile privatekeyfilelocal
 	ssh -p 2220 -i privatekeyfilelocal bandit14@bandit.labs.overthewire.org
+privatekeyfilelocal
 
 
 
 
-
-lvl 14 -> 15: [password1415]
+lvl 14 -> 15: privatekeyfilelocal
 Notes:
 
 Steps:
 	cat /etc/bandit_pass/bandit14 [outputs password14]
 	nc localhost 30000
 	[submit password14]
-
+[password1516]
 
 
 
@@ -239,13 +239,13 @@ openssl s_client acts as a simple SSL/TLS client
 
 Steps:
 	openssl s_client -connect localhost:30001
-	[submit password1415]
+	[submit password1516]
+[password1617]
 
 
 
 
-
-lvl 16 -> 17: ssh -p 2220 -i privatekeyfile bandit17@bandit.labs.overthewire.org
+lvl 16 -> 17: [password1617]
 Notes:
 look for ports with ssl/unknown return responses
 -sV detects service versions
@@ -255,21 +255,21 @@ password must be piped via printf | openssl
 Steps:
 	cat /etc/bandit_pass/bandit16
 	nmap -p 31000-32000 -sV -v --script ssl-cert localhost
-	printf "[password1516]\n" | openssl s_client -connect localhost:[specific port with ssl/unknown return response] -quiet
+	printf "[password1617]\n" | openssl s_client -connect localhost:[specific port with ssl/unknown return response] -quiet
 	nano privatekeyfile
 	// save provided private key
+privatekeyfile
 
 
 
 
-
-lvl 17 -> 18: [password1718]
+lvl 17 -> 18: privatekeyfile
 Notes:
 diff outputs the differences between two files
 
 Steps:
 	diff passwords.old passwords.new
-
+[password1819]
 
 
 
@@ -281,7 +281,7 @@ must be run locally due to forced SSH logout
 Steps:
 	scp -P 2220 bandit18@bandit.labs.overthewire.org:~/readme .
 	cat readme
-
+password[1920]
 
 
 
@@ -292,7 +292,7 @@ bandit20-do uses setuid to run with owner privileges
 
 Steps:
 	./bandit20-do cat /etc/bandit_pass/bandit20
-
+[password2021]
 
 
 
@@ -304,14 +304,14 @@ Notes:
 -n suppresses newline
 
 Steps:
-	echo -n "[password1920]" | nc -l -p 1234 &
+	echo -n "[password2021]" | nc -l -p 1234 &
 	./suconnect 1234
+[password2122]
 
 
 
 
-
-lvl 21 -> 22: [password2120]
+lvl 21 -> 22: [password2122]
 Notes:
 examine cronjob_bandit22 as that is the next level -> outputs an executable cronjob_bandit22 job which runs at startup and at every minute
 examining cronjob_bandit22.sh shows that this executable gives 644 permissions which means bandit21 (us) has read permissions
@@ -321,7 +321,7 @@ Steps:
 	cat cronjob_bandit22
 	cat /usr/bin/cronjob_bandit22.sh (creates tmp_file)
 	cat tmp_file
-
+[password2223]
 
 
 
@@ -337,7 +337,7 @@ Steps:
 	cat /usr/bin/cronjob_bandit23.sh
 	echo "I am user bandit23" | md5sum | cut -d ' ' -f 1 (outputs hash)
 	cat /tmp/hash
-
+[password2324]
 
 
 
@@ -373,3 +373,4 @@ Steps:
 	cat /var/spool/bandit24/foo/pass.sh (sanity check)
 	(wait one minute)
 	cat password
+[password2425]
