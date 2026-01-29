@@ -215,6 +215,7 @@ ssh -i specifies the identity file for public key authentication
 Steps:
 	exit
 	scp -P 2220 bandit13@bandit.labs.overthewire.org:privatekeyfile privatekeyfilelocal
+	[password1314]
 	ssh -p 2220 -i privatekeyfilelocal bandit14@bandit.labs.overthewire.org
 privatekeyfilelocal
 

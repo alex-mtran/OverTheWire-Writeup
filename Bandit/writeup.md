@@ -821,11 +821,33 @@ The password for the next level is stored in `/etc/bandit_pass/bandit14` and can
 
 ### High Level Theory
 
+As only user **bandit14** can read out the password stored in `/etc/bandit_pass/bandit14`, we need some other method to access it without a password. That method is to use **sshkeys**.
+
+Previously, we had been doing `ssh` -> input password to access level. In this level, they have provided us a **sshkey.private** to use instead of the password to access the next level. 
+
+Exit out of bandit machine. Use `scp` to move and store the **sshkey.private** file to home machine. Use the `ssh -i` flag to add a file to be used as the password.
 
 #
 
 ### Steps
 
+```bash
+bandit13@bandit:~$ ls
+sshkey.private
+bandit13@bandit:~$ exit
+```
+This will exit out of the **bandit13** machine into your home machine.
+
+```bash
+user@homemachine:~$ scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private sshkey14.private
+user@homemachine:~$ ssh -p 2220 -i sshkey14.private bandit14@bandit.labs.overthewire.org
+```
+
+Output password
+```bash
+bandit14@bandit:~$ cat /etc/bandit_pass/bandit14
+[password1415]
+```
 
 #
 [OverTheWire Bandit Level 13 → 14](https://overthewire.org/wargames/bandit/bandit14.html)
@@ -846,6 +868,11 @@ The password for the next level is stored in `/etc/bandit_pass/bandit14` and can
 ```bash
 ssh -p 2220 -i sshkey14.private bandit14@bandit.labs.overthewire.org
 ```
+OR
+```bash
+ssh -p 2220 bandit14@bandit.labs.overthewire.org
+```
+Password: [password1415]
 #
 
 ### Description
@@ -855,6 +882,7 @@ The password for the next level can be retrieved by submitting the password of t
 #
 
 ### High Level Theory
+
 
 
 #
