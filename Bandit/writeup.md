@@ -883,11 +883,30 @@ The password for the next level can be retrieved by submitting the password of t
 
 ### High Level Theory
 
+All bandit passwords will be stored in the file path `/etc/bandit_pass/bandit#` where # is the bandit level.
 
+```bash
+nc [host] [port]
+```
 
+The `nc` command allows for read and write like `cat` but across the network using UDP/TCP connections.
 #
 
 ### Steps
+
+
+```bash
+bandit14@bandit:~$ nc localhost 30000
+```
+* After entering the `nc` command, the terminal goes blank. This means that we are on the right path as that means we have established a valid TCP connection and it is now in idle mode. Now, we can provide our inputs ([password1415]) into that connection.
+
+Output password
+```bash
+[password1415]
+Correct!
+[password1516]
+```
+* NOTE: Type in **^C** (which is the keyboard buttons **CTRL + C**) to exit out of the established connection.
 
 
 #
